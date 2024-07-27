@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <RootNamespace>fast_search</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Program.fs"/>
+        <Compile Include="UserInterface.fs" />
+        <Compile Include="Domain.fs" />
+        <Compile Include="ResourceTracker.fs" />
+    </ItemGroup>
+
+</Project>
