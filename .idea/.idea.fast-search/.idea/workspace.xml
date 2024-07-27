@@ -7,15 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06be8408-907f-44f9-afcd-e4d6b06b0209" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain.fs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Program.fs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ResourceTracker.fs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserInterface.fs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search.fsproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search.sln" afterDir="false" />
+    <list default="true" id="06be8408-907f-44f9-afcd-e4d6b06b0209" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResourceTracker.fs" beforeDir="false" afterPath="$PROJECT_DIR$/ResourceTracker.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +19,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "gammafoxed"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/gammafoxed/fast-search",
+    "accountId": "6140dbe1-793d-4702-afc5-72aa3adcacc2"
+  }
+}]]></component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -86,8 +92,17 @@
       <option name="presentableId" value="Default" />
       <updated>1722074931412</updated>
       <workItem from="1722074932473" duration="1096000" />
-      <workItem from="1722076175701" duration="5452000" />
+      <workItem from="1722076175701" duration="7048000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1722087609510</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722087609510</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,5 +113,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
 </project>
