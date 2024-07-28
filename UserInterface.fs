@@ -30,18 +30,48 @@ module private Form =
     form.Controls.Add(memoryUsageLabel)
     form.Controls.Add(cpuThresholdTextBox)
     form.Controls.Add(memoryThresholdTextBox)
+    
 
-    directoryButton.Click.Add(fun _ ->
-    use folderDialog = new FolderBrowserDialog()
-    if folderDialog.ShowDialog() = DialogResult.OK then
-        directoryTextBox.Text <- folderDialog.SelectedPath)
+module Buttons =
+    open Form
+    let onClickDirButton(onClick: unit -> unit) =
+        directoryButton.Click.Add (fun _ -> onClick())
+
+    let onClickCancelButton(onClick: unit -> unit) =
+        cancelButton.Click.Add (fun _ -> onClick())
+        
+    let onClickSearchButton(onClick: unit -> unit) =
+        searchButton.Click.Add (fun _ -> onClick())
+
+module TextBox =
+    open Form
+    let setDirectoryText text =
+        directoryTextBox.Text <- text
+    let getDirectoryText() = directoryTextBox.Text
+
+    
+    let setPatternText text =
+        directoryTextBox.Text <- text
+    let getPatternText() = patternTextBox.Text
     
     
+    let setCpuThresholdText text =
+        cpuThresholdTextBox.Text <- text
+    let getCpuThresholdText() = cpuThresholdTextBox.Text
+    
+    
+    let setMemoryThresholdText text =
+        memoryThresholdTextBox.Text <- text
+    let getMemoryThresholdText() = memoryThresholdTextBox.Text
+
+module ListBox =
+    open Form
+    let updateList(file: string) =
+        form.Invoke(fun () -> resultListBox.Items.Add(file |> ignore)) |> ignore
+
+    let clearList() = resultListBox.Items.Clear()
 
 open Form
 let initForm() =
     cpuThresholdTextBox.Text <- "80"
     memoryThresholdTextBox.Text <- "1024"
-
-let updateList(file: string) =
-    form.Invoke(fun () -> resultListBox.Items.Add(file |> ignore))

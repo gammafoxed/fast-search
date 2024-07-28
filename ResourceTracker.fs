@@ -9,25 +9,22 @@ module private data =
     let performanceCounterCpu = new PerformanceCounter("Processor", "% Processor Time", "_Total")
     let performanceCounterMem = new PerformanceCounter("Memory", "Available MBytes")
     
-    let mutable cpuThreshold = 80f;
-    let mutable memThreshold = 1024f
+    let mutable cpuThreshold = 80.0;
+    let mutable memThreshold = 1024.0
     
-    let computerInfo = new ComputerInfo()
+    let computerInfo = ComputerInfo()
 
 open data
-let startTracking(cpuUsageCallback: string -> unit)(memoryUsageCallback: string -> unit) =
+let startTracking(cpuUsageCallback: float -> unit)(memoryUsageCallback: float -> unit) (canselCallback: unit -> unit) =
     let timer = new Timer(Interval = 1000)
-    let cts = new System.Threading.CancellationTokenSource()
     timer.Tick.Add(fun _ ->
-        let cpuUsage = performanceCounterCpu.NextValue()
+        let cpuUsage = performanceCounterCpu.NextValue() |> float
         let memoryAvailable = performanceCounterMem.NextValue() |> float
         let totalMemory = computerInfo.TotalPhysicalMemory / (1024UL * 1024UL) |> float
-        let memoryUsage = totalMemory - memoryAvailable
+        let memoryUsage = (totalMemory - memoryAvailable) |> float
 
-        sprintf "CPU Usage: %.2f%%" cpuUsage |> cpuUsageCallback
-        $"Memory Usage: %.2f{uint(ComputerInfo.TotalPhysicalMemory - ComputerInfo.AvailablePhysicalMemory) / (1024.0 * 1024.0)} MB" |> memoryUsageCallback
+        cpuUsageCallback cpuUsage
+        memoryUsageCallback memoryUsage
 
-        if cpuUsage > cpuThreshold || memoryUsage < memoryThreshold then
-            cts.Cancel()
-            MessageBox.Show("Resource usage exceeded the threshold. Search was canceled.") |> ignore
+        if cpuUsage > cpuThreshold || memoryUsage < memThreshold then canselCallback()
 )
