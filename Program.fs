@@ -8,7 +8,6 @@ open Buttons
 open TextBox
 open ListBox
 open Domain
-open ResourceTracker
 
 
 [<EntryPoint>]
@@ -32,12 +31,10 @@ let main argv =
 
     searchTask <- parallelFind directory pattern 4 cts.Token updateList
 
-    searchTask.ContinueWith(fun t ->
+    searchTask.ContinueWith(fun (t: Task) ->
         match t.Status with
-        | TaskStatus.RanToCompletion ->
-            MessageBox.Show("Search completed.") |> ignore
+        | TaskStatus.RanToCompletion -> MessageBox.Show("Search completed.") |> ignore
         | TaskStatus.Canceled -> MessageBox.Show("Search was canceled.") |> ignore
         | TaskStatus.Faulted -> MessageBox.Show("Search encountered an error.") |> ignore
-    ) |> ignore
-        )
+        | _ -> MessageBox.Show("Unknown error.") |> ignore)
     0
