@@ -37,4 +37,5 @@ let main argv =
         | TaskStatus.Canceled -> MessageBox.Show("Search was canceled.") |> ignore
         | TaskStatus.Faulted -> MessageBox.Show("Search encountered an error.") |> ignore
         | _ -> MessageBox.Show("Unknown error.") |> ignore)
+    )
     0
