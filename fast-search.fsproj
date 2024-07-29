@@ -9,10 +9,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="ResourceTracker.fs" />
-        <Compile Include="Domain.fs" />
-        <Compile Include="UserInterface.fs" />
-        <Compile Include="Program.fs" />
+        <Compile Include="ResourceTracker.fs"/>
+        <Compile Include="Domain.fs"/>
+        <Compile Include="UserInterface.fs"/>
+        <Compile Include="Program.fs"/>
     </ItemGroup>
 
 </Project>

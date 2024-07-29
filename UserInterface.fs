@@ -1,6 +1,5 @@
 module fast_search.UserInterface
 
-open System.Diagnostics
 open System.Windows.Forms
 
 module private Form =
@@ -30,48 +29,60 @@ module private Form =
     form.Controls.Add(memoryUsageLabel)
     form.Controls.Add(cpuThresholdTextBox)
     form.Controls.Add(memoryThresholdTextBox)
-    
+
 
 module Buttons =
-    open Form
-    let onClickDirButton(onClick: unit -> unit) =
-        directoryButton.Click.Add (fun _ -> onClick())
 
-    let onClickCancelButton(onClick: unit -> unit) =
-        cancelButton.Click.Add (fun _ -> onClick())
-        
-    let onClickSearchButton(onClick: unit -> unit) =
-        searchButton.Click.Add (fun _ -> onClick())
+let onClickDirButton (onClick: unit -> unit) =
+    directoryButton.Click.Add(fun _ -> onClick ())
+
+    let onClickCancelButton (onClick: unit -> unit) =
+        cancelButton.Click.Add(fun _ -> onClick ())
+
+    let onClickSearchButton (onClick: unit -> unit) =
+        searchButton.Click.Add(fun _ -> onClick ())
 
 module TextBox =
     open Form
-    let setDirectoryText text =
-        directoryTextBox.Text <- text
-    let getDirectoryText() = directoryTextBox.Text
+    let setDirectoryText text = directoryTextBox.Text <- text
+    let getDirectoryText () = directoryTextBox.Text
 
-    
-    let setPatternText text =
-        directoryTextBox.Text <- text
-    let getPatternText() = patternTextBox.Text
-    
-    
-    let setCpuThresholdText text =
-        cpuThresholdTextBox.Text <- text
-    let getCpuThresholdText() = cpuThresholdTextBox.Text
-    
-    
-    let setMemoryThresholdText text =
-        memoryThresholdTextBox.Text <- text
-    let getMemoryThresholdText() = memoryThresholdTextBox.Text
+
+    let setPatternText text = directoryTextBox.Text <- text
+    let getPatternText () = patternTextBox.Text
+
+
+    let setCpuThresholdText text = cpuThresholdTextBox.Text <- text
+    let getCpuThresholdText () = cpuThresholdTextBox.Text
+
+
+    let setMemoryThresholdText text = memoryThresholdTextBox.Text <- text
+    let getMemoryThresholdText () = memoryThresholdTextBox.Text
 
 module ListBox =
     open Form
-    let updateList(file: string) =
+
+    let updateList (file: string) =
         form.Invoke(fun () -> resultListBox.Items.Add(file |> ignore)) |> ignore
 
-    let clearList() = resultListBox.Items.Clear()
+    let clearList () =
+        form.Invoke(fun () -> resultListBox.Items.Clear()) |> ignore
+
+module Labels =
+    open Form
+
+    let updateCpuUsage (usage: float) =
+        form.Invoke(fun () -> cpuUsageLabel.Text <- $"CPU Usage: %.2f{usage}") |> ignore
+
+    let updateMemoryUsage (usage: float) =
+        form.Invoke(fun () -> memoryUsageLabel.Text <- $"Memory Usage: %.2f{usage} MB")
+        |> ignore
+
 
 open Form
-let initForm() =
+
+let initForm () =
     cpuThresholdTextBox.Text <- "80"
     memoryThresholdTextBox.Text <- "1024"
+
+let runApplication () = Application.Run(form)
