@@ -20,8 +20,7 @@ let rec findFilesAsync
             let subDirs = Directory.EnumerateDirectories(directory)
             let files = Directory.EnumerateFiles(directory, pattern)
 
-            for file in files do
-    updateList (file)
+            for file in files do updateList (file)
 
             let! _ =
                 subDirs

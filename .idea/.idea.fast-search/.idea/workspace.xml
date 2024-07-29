@@ -7,13 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06be8408-907f-44f9-afcd-e4d6b06b0209" name="Changes" comment="">
+    <list default="true" id="06be8408-907f-44f9-afcd-e4d6b06b0209" name="Changes" comment="Refactor task management and add resource tracking logic&#10;&#10;Refactored task continuation handling in `Program.fs` to use asynchronous workflows for better readability and reliability. Added initialization and monitoring logic for CPU and memory usage, including appropriate cancellation mechanisms. Also, updated various modules and project files to support this new functionality.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain.fs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.fs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.fs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ResourceTracker.fs" beforeDir="false" afterPath="$PROJECT_DIR$/ResourceTracker.fs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserInterface.fs" beforeDir="false" afterPath="$PROJECT_DIR$/UserInterface.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fast-search.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search.fsproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +19,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Aleksei Simakov &lt;57300619+gammafoxed@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -37,7 +40,6 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///var/home/aleksei/Projects/fast-search/Domain.fs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///var/home/aleksei/Projects/fast-search/Program.fs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -103,7 +105,7 @@
       <workItem from="1722076175701" duration="7657000" />
       <workItem from="1722139257402" duration="1588000" />
       <workItem from="1722184787162" duration="15748000" />
-      <workItem from="1722229482437" duration="197000" />
+      <workItem from="1722229482437" duration="432000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -153,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722201637455</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Refactor task management and add resource tracking logic&#10;&#10;Refactored task continuation handling in `Program.fs` to use asynchronous workflows for better readability and reliability. Added initialization and monitoring logic for CPU and memory usage, including appropriate cancellation mechanisms. Also, updated various modules and project files to support this new functionality.">
+      <option name="closed" value="true" />
+      <created>1722229761451</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722229761451</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +183,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial commit" />
@@ -180,6 +191,12 @@
     <MESSAGE value="Added some functions, refactoring" />
     <MESSAGE value="Without errors" />
     <MESSAGE value="With errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="With errors" />
+    <MESSAGE value="Собирается без ошибок. Полностью используются механизмы асинхронности F#, нужно присмотреться к реализации взаимодейтсвия бека с графикой" />
+    <MESSAGE value="Refactor to improve resource handling and user interface&#10;&#10;Updated main program logic to integrate resource tracking and async search operations for better performance. Enhanced user interface initialization and control callbacks for better user interaction. Cleaned up and refactored code elements for readability and maintainability across modules." />
+    <MESSAGE value="Refactor task management and add resource tracking logic&#10;&#10;Refactored task continuation handling in `Program.fs` to use asynchronous workflows for better readability and reliability. Added initialization and monitoring logic for CPU and memory usage, including appropriate cancellation mechanisms. Also, updated various modules and project files to support this new functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor task management and add resource tracking logic&#10;&#10;Refactored task continuation handling in `Program.fs` to use asynchronous workflows for better readability and reliability. Added initialization and monitoring logic for CPU and memory usage, including appropriate cancellation mechanisms. Also, updated various modules and project files to support this new functionality." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

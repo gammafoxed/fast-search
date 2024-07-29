@@ -32,9 +32,9 @@ module private Form =
 
 
 module Buttons =
-
-let onClickDirButton (onClick: unit -> unit) =
-    directoryButton.Click.Add(fun _ -> onClick ())
+    open Form
+    let onClickDirButton (onClick: unit -> unit) =
+        directoryButton.Click.Add(fun _ -> onClick ())
 
     let onClickCancelButton (onClick: unit -> unit) =
         cancelButton.Click.Add(fun _ -> onClick ())
@@ -66,21 +66,19 @@ module ListBox =
         form.Invoke(fun () -> resultListBox.Items.Add(file |> ignore)) |> ignore
 
     let clearList () =
-        form.Invoke(fun () -> resultListBox.Items.Clear()) |> ignore
+        form.Invoke(fun () -> resultListBox.Items.Clear())
 
 module Labels =
     open Form
 
     let updateCpuUsage (usage: float) =
-        form.Invoke(fun () -> cpuUsageLabel.Text <- $"CPU Usage: %.2f{usage}") |> ignore
+        form.Invoke(fun () -> cpuUsageLabel.Text <- $"CPU Usage: %.2f{usage}")
 
     let updateMemoryUsage (usage: float) =
         form.Invoke(fun () -> memoryUsageLabel.Text <- $"Memory Usage: %.2f{usage} MB")
-        |> ignore
 
 
 open Form
-
 let initForm () =
     cpuThresholdTextBox.Text <- "80"
     memoryThresholdTextBox.Text <- "1024"

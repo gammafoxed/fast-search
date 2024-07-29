@@ -6,8 +6,7 @@ open Microsoft.FSharp.Core
 open Microsoft.VisualBasic.Devices
 
 module private data =
-    let performanceCounterCpu =
-    new PerformanceCounter("Processor", "% Processor Time", "_Total")
+    let performanceCounterCpu = new PerformanceCounter("Processor", "% Processor Time", "_Total")
     let performanceCounterMem = new PerformanceCounter("Memory", "Available MBytes")
 
     let mutable cpuThreshold = 80.0
