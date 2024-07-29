@@ -5,71 +5,57 @@ open System.Collections.Concurrent
 open System.IO
 open System.Threading
 
-
-module AsyncExtensions =
-    open Microsoft.FSharp.Control
-    let ParallelThrottled<'T> (maxDegreeOfParallelism: int) (jobs: seq<Async<'T>>) : Async<'T[]> =
-        async {
-            let semaphore = new SemaphoreSlim(maxDegreeOfParallelism, maxDegreeOfParallelism)
-            let resultBag = ConcurrentBag<'T>()
-
-            let runJob job = async {
-                do! semaphore.WaitAsync() |> Async.AwaitTask
-                try
-                    let! result = job
-                    resultBag.Add(result)
-                finally
-                    semaphore.Release() |> ignore
-            }
-
-            let! tasks = 
-                jobs 
-                |> Seq.map runJob 
-                |> Async.Parallel
-            
-            return resultBag.ToArray()
-        }
-
 let searchFilesAsync (rootDir: string) (pattern: string) (maxDegreeOfParallelism: int) (cancellationToken: CancellationToken) =
     let files = ConcurrentBag<string>()
-    
+    let dirsToProcess = ConcurrentQueue<string>()
+    let semaphore = new SemaphoreSlim(maxDegreeOfParallelism, maxDegreeOfParallelism)
+
+    // Добавляем корневую директорию в очередь
+    dirsToProcess.Enqueue(rootDir)
+
     let rec searchDirAsync (dir: string) = async {
         try
-            // Добавляем найденные файлы в список
-            let fileEntries = Directory.GetFiles(dir, pattern)
-            for file in fileEntries do
-                files.Add(file)
+            try
+                // Добавляем найденные файлы в список
+                let fileEntries = Directory.GetFiles(dir, pattern)
+                for file in fileEntries do
+                    files.Add(file)
 
-            // Рекурсивно ищем в поддиректориях
-            let subDirs = Directory.GetDirectories(dir)
-            let subDirJobs = 
-                subDirs 
-                |> Array.map (fun subDir -> async {
-                    do! searchDirAsync subDir
-                })
-            let! _ = AsyncExtensions.ParallelThrottled maxDegreeOfParallelism subDirJobs
-            return ()
-        with
-        | :? UnauthorizedAccessException -> return ()
-        | :? DirectoryNotFoundException -> return ()
+                // Добавляем поддиректории в очередь
+                let subDirs = Directory.GetDirectories(dir)
+                for subDir in subDirs do
+                    dirsToProcess.Enqueue(subDir)
+            with
+            | :? UnauthorizedAccessException -> ()
+            | :? DirectoryNotFoundException -> ()
+        finally
+            semaphore.Release() |> ignore
+    }
+
+    let processQueueAsync () = async {
+        while not cancellationToken.IsCancellationRequested && not dirsToProcess.IsEmpty do
+            let mutable dir = null
+            if dirsToProcess.TryDequeue(&dir) then
+                do! semaphore.WaitAsync(cancellationToken) |> Async.AwaitTask
+                Async.Start(searchDirAsync dir, cancellationToken)
     }
 
     async {
-        try
-            do! searchDirAsync rootDir
-        with
-        | :? OperationCanceledException -> ()
+        let queueProcessor = processQueueAsync ()
+        do! Async.Ignore(queueProcessor)
+        // Ожидание завершения всех задач
+        while semaphore.CurrentCount <> maxDegreeOfParallelism do
+            do! Async.Sleep(100)
         return files |> Seq.toList
     }
-
-
+    
 [<EntryPoint>]
 let main argv =
     let cts = new CancellationTokenSource()
     let token = cts.Token
-    let rootDir = @"/var/home/aleksei"
+    let rootDir = @"/var/home/aleksei/"
     let pattern = "*.fs"
-    let maxDegreeOfParallelism = 4
+    let maxDegreeOfParallelism = 10
 
     let task = searchFilesAsync rootDir pattern maxDegreeOfParallelism token
     let result = Async.RunSynchronously task

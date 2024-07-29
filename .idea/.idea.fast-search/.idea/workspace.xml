@@ -7,18 +7,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06be8408-907f-44f9-afcd-e4d6b06b0209" name="Changes" comment="">
+    <list default="true" id="06be8408-907f-44f9-afcd-e4d6b06b0209" name="Changes" comment="Функиця для распараллеливания поиска работает. Но съедает огромное количество памяти и очень сильно грузит процессор. Возможно стоит сделать ограничение по количеству одновременно запускаемых асинхронных задач, а так же сделать асинхронный вывод данных (например через последовательности)">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain.fs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.fs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResourceTracker.fs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserInterface.fs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fast-search.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search.fsproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -118,7 +117,7 @@
       <workItem from="1722229482437" duration="11041000" />
       <workItem from="1722280019127" duration="853000" />
       <workItem from="1722280879593" duration="16000" />
-      <workItem from="1722281110871" duration="637000" />
+      <workItem from="1722281110871" duration="2072000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -184,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722230040016</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Функиця для распараллеливания поиска работает. Но съедает огромное количество памяти и очень сильно грузит процессор. Возможно стоит сделать ограничение по количеству одновременно запускаемых асинхронных задач, а так же сделать асинхронный вывод данных (например через последовательности)">
+      <option name="closed" value="true" />
+      <created>1722282125143</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722282125143</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +234,8 @@
     <MESSAGE value="Refactor to improve resource handling and user interface&#10;&#10;Updated main program logic to integrate resource tracking and async search operations for better performance. Enhanced user interface initialization and control callbacks for better user interaction. Cleaned up and refactored code elements for readability and maintainability across modules." />
     <MESSAGE value="Refactor task management and add resource tracking logic&#10;&#10;Refactored task continuation handling in `Program.fs` to use asynchronous workflows for better readability and reliability. Added initialization and monitoring logic for CPU and memory usage, including appropriate cancellation mechanisms. Also, updated various modules and project files to support this new functionality." />
     <MESSAGE value="Восстановлен код после автоматического форматирования и очистки.&#10;Нужно сделать ввод-вывод данных в форму польностью безопасным.&#10;Проверить, запустить на реальной машине" />
-    <option name="LAST_COMMIT_MESSAGE" value="Восстановлен код после автоматического форматирования и очистки.&#10;Нужно сделать ввод-вывод данных в форму польностью безопасным.&#10;Проверить, запустить на реальной машине" />
+    <MESSAGE value="Функиця для распараллеливания поиска работает. Но съедает огромное количество памяти и очень сильно грузит процессор. Возможно стоит сделать ограничение по количеству одновременно запускаемых асинхронных задач, а так же сделать асинхронный вывод данных (например через последовательности)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Функиця для распараллеливания поиска работает. Но съедает огромное количество памяти и очень сильно грузит процессор. Возможно стоит сделать ограничение по количеству одновременно запускаемых асинхронных задач, а так же сделать асинхронный вывод данных (например через последовательности)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
