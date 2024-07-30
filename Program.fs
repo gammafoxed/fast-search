@@ -48,13 +48,13 @@ let searchFiles (rootDirectory: string) (fileMask: string) =
             let files = Directory.GetFiles(directory, fileMask)
             for file in files do
                 results.Add(file)
-                totalSize.Value <- totalSize.Value + (FileInfo(file)).Length
+                totalSize.Value <- totalSize.Value + FileInfo(file).Length
                 totalFiles.Value <- totalFiles.Value + 1
 
             // Подсчет всех файлов в текущем каталоге
             let allFiles = Directory.GetFiles(directory)
             for file in allFiles do
-                totalStorageSize.Value <- totalStorageSize.Value + (FileInfo(file)).Length
+                totalStorageSize.Value <- totalStorageSize.Value + FileInfo(file).Length
                 totalStorageFiles.Value <- totalStorageFiles.Value + 1
 
             // Рекурсивный поиск в подкаталогах
@@ -82,8 +82,8 @@ let searchFiles (rootDirectory: string) (fileMask: string) =
 // Точка входа в программу
 [<EntryPoint>]
 let main argv =
-    let rootDir = "//Pack2008/work"  // Корневой каталог для начала поиска
-    let mask = "*773*.pdf"           // Маска файлов для поиска
+    let rootDir = "/run/media/aleksei/STORAGE"  // Корневой каталог для начала поиска
+    let mask = "upi*.json"           // Маска файлов для поиска
 
     // Замер времени выполнения
     let stopwatch = Stopwatch.StartNew()

@@ -16,9 +16,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DpaMonitoringSettings">
-    <option name="autoShow" value="false" />
-  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
@@ -38,12 +35,12 @@
     &quot;assignee&quot;: &quot;gammafoxed&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/gammafoxed/fast-search",
-    "accountId": "bb07a500-f675-4252-aea2-628de52ea02b"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gammafoxed/fast-search&quot;,
+    &quot;accountId&quot;: &quot;bb07a500-f675-4252-aea2-628de52ea02b&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:////Pack2008/work/Lerning-2012/Aleksei/SOFTWARE/SOURCE/fast-search/Program.fs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -59,28 +56,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.fast-search.executor": "Run",
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "tasks__console",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.fast-search.executor&quot;: &quot;Run&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tasks__console&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;SolutionBuilderGeneralOptionsPage&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/var/home/aleksei/.var/app/com.jetbrains.Rider/config/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
-      "/var/home/aleksei/.var/app/com.jetbrains.Rider/config/JetBrains/Rider2024.1/resharper-host/SourcesCache",
-      "/var/home/aleksei/.var/app/com.jetbrains.Rider/data/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/var/home/aleksei/.var/app/com.jetbrains.Rider/config/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
+      &quot;/var/home/aleksei/.var/app/com.jetbrains.Rider/config/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
+      &quot;/var/home/aleksei/.var/app/com.jetbrains.Rider/data/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="fast-search" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
