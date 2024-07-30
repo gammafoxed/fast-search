@@ -1,64 +1,54 @@
 ﻿module fast_search.Program
 
 open System
-open System.Collections.Concurrent
 open System.IO
-open System.Threading
+open System.Threading.Tasks
+open System.Collections.Concurrent
 
-let searchFilesAsync (rootDir: string) (pattern: string) (maxDegreeOfParallelism: int) (cancellationToken: CancellationToken) =
-    let files = ConcurrentBag<string>()
-    let dirsToProcess = ConcurrentQueue<string>()
-    let semaphore = new SemaphoreSlim(maxDegreeOfParallelism, maxDegreeOfParallelism)
+let maxDegreeOfParallelism = 4  // Максимальное количество параллельных задач
+let memoryLimit = 1000000000L    // Ограничение по памяти в байтах (1 ГБ)
 
-    // Добавляем корневую директорию в очередь
-    dirsToProcess.Enqueue(rootDir)
+type MemoryLimitExceededException() = inherit Exception("Memory limit exceeded")
 
-    let rec searchDirAsync (dir: string) = async {
+let searchFiles (rootDirectory: string) (fileMask: string) =
+    let results = ConcurrentBag<string>()
+
+    let rec search directory =
+        let memoryUsage = System.Diagnostics.Process.GetCurrentProcess().PrivateMemorySize64
+        if memoryUsage > memoryLimit then
+            raise (MemoryLimitExceededException())
+
         try
-            try
-                // Добавляем найденные файлы в список
-                let fileEntries = Directory.GetFiles(dir, pattern)
-                for file in fileEntries do
-                    files.Add(file)
+            let files = Directory.GetFiles(directory, fileMask)
+            for file in files do
+                results.Add(file)
+            
+            let directories = Directory.GetDirectories(directory)
+            let tasks = directories |> Array.map (fun dir -> Task.Factory.StartNew(fun () -> search dir) :> Task)
+            Task.WaitAll(tasks)
+        with
+        | :? UnauthorizedAccessException -> ()
+        | :? PathTooLongException -> ()
+        | :? MemoryLimitExceededException -> raise (MemoryLimitExceededException())
 
-                // Добавляем поддиректории в очередь
-                let subDirs = Directory.GetDirectories(dir)
-                for subDir in subDirs do
-                    dirsToProcess.Enqueue(subDir)
-            with
-            | :? UnauthorizedAccessException -> ()
-            | :? DirectoryNotFoundException -> ()
-        finally
-            semaphore.Release() |> ignore
-    }
+    try
+        let rootDirectories = Directory.GetDirectories(rootDirectory)
+        let rootTasks = rootDirectories |> Array.map (fun dir -> Task.Factory.StartNew(fun () -> search dir) :> Task)
+        Task.WaitAll(rootTasks)
+    with
+    | :? MemoryLimitExceededException ->
+        printfn "Memory limit exceeded during file search."
 
-    let processQueueAsync () = async {
-        while not cancellationToken.IsCancellationRequested && not dirsToProcess.IsEmpty do
-            let mutable dir = null
-            if dirsToProcess.TryDequeue(&dir) then
-                do! semaphore.WaitAsync(cancellationToken) |> Async.AwaitTask
-                Async.Start(searchDirAsync dir, cancellationToken)
-    }
-
-    async {
-        let queueProcessor = processQueueAsync ()
-        do! Async.Ignore(queueProcessor)
-        // Ожидание завершения всех задач
-        while semaphore.CurrentCount <> maxDegreeOfParallelism do
-            do! Async.Sleep(100)
-        return files |> Seq.toList
-    }
+    results
+    
     
 [<EntryPoint>]
 let main argv =
-    let cts = new CancellationTokenSource()
-    let token = cts.Token
-    let rootDir = @"/var/home/aleksei/"
-    let pattern = "*.fs"
-    let maxDegreeOfParallelism = 10
+    let rootDir = "//Pack2008/work"
+    let mask = "*773*.pdf"
+    let foundFiles = searchFiles rootDir mask
 
-    let task = searchFilesAsync rootDir pattern maxDegreeOfParallelism token
-    let result = Async.RunSynchronously task
-    
-    Console.WriteLine result
+    for file in foundFiles do
+        printfn $"%s{file}"
+
     0
