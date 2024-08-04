@@ -2,14 +2,15 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-<!--        <TargetFramework>net8.0-windows</TargetFramework>-->
-        <TargetFramework>net8.0</TargetFramework>
-<!--        <UseWindowsForms>true</UseWindowsForms>-->
-<!--        <EnableWindowsTargeting>true</EnableWindowsTargeting>-->
+        <TargetFramework>net8.0-windows</TargetFramework>
+<!--        <TargetFramework>net8.0</TargetFramework>-->
+        <UseWindowsForms>true</UseWindowsForms>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
         <RootNamespace>fast_search</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Form.fs" />
         <Compile Include="FindAsync.fs" />
         <Compile Include="Program.fs"/>
     </ItemGroup>

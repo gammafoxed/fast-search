@@ -5,11 +5,8 @@ open FindAsync
 
 [<EntryPoint>]
 let main argv =
-    let rootDir = "C:\scan"
-    let mask = "*.pdf"
-    
     let mailBox = MailboxProcessor.Start(fun inbox ->
-        async{
+        async {
             while true do
                 let! res = inbox.Receive()
                 match res with
@@ -17,6 +14,9 @@ let main argv =
                 | Error err -> printfn $"[ERROR]: {err}"
         })
     
-    search(rootDir, mask, 4,  mailBox) |> Async.RunSynchronously
-    Console.ReadLine() |> ignore
+    Form.setOnClickAction( fun path mask ->
+        search(path, mask, 4,  mailBox) |> Async.RunSynchronously
+        Form.startInfiniteProgressBar()
+        )
+    Form.runForm()
     0
