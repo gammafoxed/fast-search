@@ -9,22 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06be8408-907f-44f9-afcd-e4d6b06b0209" name="Changes" comment="Внесены изменения, не работет. Планируется добавить новый проект для создания WPF приложения. Существующий проект будет выступать в роли библиотеки и взаимодействовать с формой посредством АПИ">
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/App.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/App.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/DirectoryBrowserWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/DirectoryBrowserWindow.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/DirectoryTreeBrowser.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/DirectoryTreeBrowser.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/MainWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/MainWindow.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fast-search-ui/fast-search-ui.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FindAsync.fs" beforeDir="false" afterPath="$PROJECT_DIR$/FindAsync.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainWindow.fs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PathChooser.fs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.fs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fast-search.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search.fsproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FindAsync.fs" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-domain/FindAsync.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.fs" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-domain/Program.fs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fast-search.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-domain/fast-search.fsproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fast-search.sln" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,16 +43,14 @@
     &quot;assignee&quot;: &quot;gammafoxed&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/gammafoxed/fast-search&quot;,
-    &quot;accountId&quot;: &quot;bb07a500-f675-4252-aea2-628de52ea02b&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/gammafoxed/fast-search",
+    "accountId": "6140dbe1-793d-4702-afc5-72aa3adcacc2"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:////Pack2008/work/Lerning-2012/Aleksei/SOFTWARE/SOURCE/fast-search/Program.fs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/winforms/fdc20074cf1e48b8cf11fe6ac78f255b1fbfe611/src/System.Windows.Forms/src/System/Windows/Forms/FolderBrowserDialog.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5515099a55bdea45a74503839a09155550000/5e/d4d8ab94/AsyncSeq.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/fast-search-domain/Program.fs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -93,9 +80,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\dimal\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\dimal\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\dimal\\AppData\\Local\\Symbols\\src"
+      "/var/home/aleksei/.var/app/com.jetbrains.Rider/config/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
+      "/var/home/aleksei/.var/app/com.jetbrains.Rider/config/JetBrains/Rider2024.1/resharper-host/SourcesCache",
+      "/var/home/aleksei/.var/app/com.jetbrains.Rider/data/Symbols/src"
     ]
   }
 }]]></component>
@@ -155,6 +142,7 @@
       <workItem from="1722281110871" duration="2072000" />
       <workItem from="1722491409068" duration="22371000" />
       <workItem from="1722838436710" duration="11336000" />
+      <workItem from="1722885129510" duration="195000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
