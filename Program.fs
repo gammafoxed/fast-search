@@ -14,9 +14,9 @@ let main argv =
                 | Error err -> printfn $"[ERROR]: {err}"
         })
     
-    Form.setOnClickAction( fun path mask ->
+    MainWindow.setOnClickAction( fun path mask ->
         search(path, mask, 4,  mailBox) |> Async.RunSynchronously
-        Form.startInfiniteProgressBar()
+        MainWindow.startInfiniteProgressBar()
         )
-    Form.runForm()
+    MainWindow.runForm()
     0

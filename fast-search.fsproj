@@ -10,7 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Form.fs" />
+        <Compile Include="PathChooser.fs" />
+        <Compile Include="MainWindow.fs" />
         <Compile Include="FindAsync.fs" />
         <Compile Include="Program.fs"/>
     </ItemGroup>

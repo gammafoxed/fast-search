@@ -1,4 +1,4 @@
-﻿module fast_search.Form
+﻿module fast_search.MainWindow
 
 open System
 open System.Drawing
@@ -40,11 +40,8 @@ module private form =
     
     // Обработчик кнопки выбора папки
     folderButton.Click.Add(fun _ ->
-        let title = "Выбирете папку для поиска"
-        let initDir = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer)
-        use folderDialog = new FolderBrowserDialog(InitialDirectory = initDir)
-        
-        if folderDialog.ShowDialog() = DialogResult.OK then pathTextBox.Text <- folderDialog.SelectedPath)
+        PathChooser.clearSelection()
+        PathChooser.showFolderBrowser(form))
     
     let mutable onSearchButtonClickAction: string -> string -> unit = fun _ _ -> ()
     
