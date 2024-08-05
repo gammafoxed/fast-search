@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fast-search", "fast-search.fsproj", "{22E5237B-DD1F-461E-B92D-8C14A32668A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fast-search-ui", "fast-search-ui\fast-search-ui.csproj", "{38F03CE4-F540-4EF3-8C00-1379EDA94C5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{22E5237B-DD1F-461E-B92D-8C14A32668A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22E5237B-DD1F-461E-B92D-8C14A32668A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22E5237B-DD1F-461E-B92D-8C14A32668A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F03CE4-F540-4EF3-8C00-1379EDA94C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F03CE4-F540-4EF3-8C00-1379EDA94C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F03CE4-F540-4EF3-8C00-1379EDA94C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F03CE4-F540-4EF3-8C00-1379EDA94C5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
