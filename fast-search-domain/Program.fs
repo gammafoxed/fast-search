@@ -15,5 +15,5 @@ let main argv =
                     | Error err -> printfn $"[ERROR]: {err}"
             })
 
-    search ("C:/", "*pdf", 4, mailBox) |> Async.RunSynchronously
+    search ("//Pack2008/work", "*O-Ring*.ipt", 4, mailBox) |> Async.RunSynchronously
     0

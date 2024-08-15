@@ -18,11 +18,11 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Search Path:" VerticalAlignment="Center" />
+        <Label Grid.Row="0" Grid.Column="0" Content="Path:" VerticalAlignment="Center" />
         <TextBox Grid.Row="0" Grid.Column="1" Name="SearchPathTextBox" Width="250" Margin="5" />
         <Button Grid.Row="0" Grid.Column="2" Content="Browse" Click="BrowseButton_Click" Margin="5" />
 
-        <Label Grid.Row="1" Grid.Column="0" Content="Search Mask:" VerticalAlignment="Center" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Mask:" VerticalAlignment="Center" />
         <TextBox Grid.Row="1" Grid.Column="1" Name="SearchMaskTextBox" Width="250" Margin="5" />
         <Button Grid.Row="1" Grid.Column="2" Content="Clear" Click="ClearMaskButton_Click" Margin="5" />
 

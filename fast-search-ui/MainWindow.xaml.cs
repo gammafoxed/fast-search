@@ -15,10 +15,16 @@ public partial class MainWindow : Window
 
     private void BrowseButton_Click(object sender, RoutedEventArgs e)
     {
+        var browserWindow = new DirectoryBrowserWindow();
+        if (browserWindow.ShowDialog() == true)
+        {
+            SearchPathTextBox.Text = browserWindow.SelectedPath;
+        }
     }
 
     private void ClearMaskButton_Click(object sender, RoutedEventArgs e)
     {
+        SearchMaskTextBox.Text = "";
     }
 
     private async void StartSearchButton_Click(object sender, RoutedEventArgs e)
@@ -33,6 +39,7 @@ public partial class MainWindow : Window
         }
 
         ProgressBar.IsIndeterminate = true;
+        
         await Task.Run(() => SearchFiles(path, mask));
         ProgressBar.IsIndeterminate = false;
     }
