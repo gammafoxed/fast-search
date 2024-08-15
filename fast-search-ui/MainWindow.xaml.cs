@@ -1,5 +1,6 @@
-﻿using System.IO;
-using System.Windows;
+﻿using System.Windows;
+using Microsoft.FSharp.Core;
+using Microsoft.FSharp.Control;
 
 namespace fast_search_ui;
 
@@ -44,19 +45,8 @@ public partial class MainWindow : Window
         ProgressBar.IsIndeterminate = false;
     }
 
-    private void SearchFiles(string path, string mask)
+    private static async Task SearchFiles(string path, string mask)
     {
-        try
-        {
-            var files = Directory.GetFiles(path, mask, SearchOption.AllDirectories);
-            foreach (var file in files)
-                // Here you can handle each file as you want
-                // For example, print the file path to the console
-                Console.WriteLine(file);
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"Error: {ex.Message}");
-        }
     }
 }
+

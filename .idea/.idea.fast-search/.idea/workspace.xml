@@ -10,12 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="06be8408-907f-44f9-afcd-e4d6b06b0209" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fast-search/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fast-search-domain/Program.fs" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-domain/Program.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fast-search-domain/fast-search.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-domain/fast-search.fsproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fast-search-ui/DirectoryBrowserWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-ui/DirectoryBrowserWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fast-search-ui/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-ui/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fast-search-domain/FindAsync.fs" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-domain/FindAsync.fs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fast-search-ui/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-ui/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fast-search-ui/fast-search-ui.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/fast-search-ui/fast-search-ui.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +40,12 @@
     &quot;assignee&quot;: &quot;gammafoxed&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/gammafoxed/fast-search",
-    "accountId": "bb07a500-f675-4252-aea2-628de52ea02b"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gammafoxed/fast-search&quot;,
+    &quot;accountId&quot;: &quot;bb07a500-f675-4252-aea2-628de52ea02b&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/fast-search-domain/Program.fs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/winforms/fdc20074cf1e48b8cf11fe6ac78f255b1fbfe611/src/System.Windows.Forms/src/System/Windows/Forms/FolderBrowserDialog.cs" root0="SKIP_HIGHLIGHTING" />

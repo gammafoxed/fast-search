@@ -39,4 +39,8 @@ module private domain =
             | ex -> Result.Error $"Exception: %s{ex.Message}" |> mailBox.Post
         }
 
+
 let search = domain.search
+
+let searchCSharpWrapper directory fileMask maxDegreeOfParallelism mailBox =
+    domain.search (directory, fileMask, maxDegreeOfParallelism, mailBox)
